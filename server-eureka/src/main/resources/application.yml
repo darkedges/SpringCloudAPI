@@ -1,0 +1,20 @@
+server:
+  port: 8761
+security:
+  basic:
+    enabled: false
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+management:
+  security:
+    enabled: false
+
+logging:
+  level:
+    ROOT: INFO
