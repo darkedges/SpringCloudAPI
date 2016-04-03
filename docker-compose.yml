@@ -1,0 +1,52 @@
+version: '2'
+services:
+  rabbitmq:
+    image: rabbitmq:3.5.3
+    expose:
+      - "5672"
+      - "15672"
+
+  eureka:
+    image: versent/server-eureka
+    hostname: eureka
+    ports:
+      - "8761:8761"
+
+  turbine:
+    image: versent/server-turbine
+    hostname: turbine
+    depends_on:
+      - eureka
+    expose:
+      - "8989"
+    links:
+      - rabbitmq
+    environment:
+      RABBITMQ_HOST: rabbitmq
+
+  serviceEmployee:
+    image: versent/service-employee
+    links:
+      - eureka
+    depends_on:
+      - eureka
+    environment:
+      EUREKA_HOST: eureka
+      EUREKA_PORT: 8761
+
+  servicePayroll:
+    image: versent/service-payroll
+    links:
+      - eureka
+      - serviceEmployee
+      - rabbitmq
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka
+      - serviceEmployee
+      - rabbitmq
+    environment:
+      EUREKA_HOST: eureka
+      EUREKA_PORT: 8761 
+      RABBITMQ_HOST: rabbitmq    

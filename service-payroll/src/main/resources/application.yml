@@ -2,7 +2,6 @@ server:
     port: 8080
     contextPath: /service-payroll
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+spring:
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}

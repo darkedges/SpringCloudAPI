@@ -10,6 +10,9 @@
 	<artifactId>server-eureka</artifactId>
 	<name>Server - Eureka</name>
 	<description>Launch an Eureka server with Spring Cloud</description>
+	<properties>
+		<docker.image.name>EurekaServer</docker.image.name>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

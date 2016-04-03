@@ -8,7 +8,6 @@
 		<artifactId>netflix-example</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<packaging>war</packaging>
 
 	<name>Service - Payroll</name>
 	<url>http://maven.apache.org</url>
