@@ -12,6 +12,21 @@ services:
     ports:
       - "8761:8761"
 
+  zuul:
+    image: versent/server-zuul
+    hostname: zuul
+    links:
+      - eureka
+      - servicePayroll
+    ports:
+      - "8765:8765"
+    depends_on:
+      - eureka
+      - servicePayroll
+    environment:
+      EUREKA_HOST: eureka
+      EUREKA_PORT: 8761
+
   turbine:
     image: versent/server-turbine
     hostname: turbine

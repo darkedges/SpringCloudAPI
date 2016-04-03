@@ -33,6 +33,7 @@
 		<module>server-eureka</module>
 		<module>server-turbine</module>
 		<module>server-config</module>
+		<module>server-zuul</module>
 		<!--<module>web-hystrix</module> -->
 		<module>service-payroll</module>
 		<module>service-employee</module>
