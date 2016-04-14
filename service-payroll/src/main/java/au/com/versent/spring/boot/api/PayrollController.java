@@ -25,7 +25,7 @@ public class PayrollController {
 	@Autowired
     private RestTemplate restTemplate;
 	
-	@HystrixCommand(groupKey = "RemoteService", commandKey = "getProfile", threadPoolKey = "RemoteService")
+	@HystrixCommand(groupKey = "PayrollMicroService", commandKey = "getProfile", threadPoolKey = "PayrollMicroService")
 	@RequestMapping(value = "/payroll", method = RequestMethod.GET, produces = "application/json")
 	public List<Payroll> findAll() {
 		Employee[] employeesResponse = restTemplate.getForObject("http://employeeservice/service-employee/employees",

@@ -21,3 +21,7 @@ server:
 logging:
   level:
     ROOT: INFO
+
+spring:
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
